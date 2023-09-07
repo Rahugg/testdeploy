@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "deploy-aws": "node aws-upload.js"
+  },
   "dependencies": {
     "aws-sdk": "^2.1452.0"
   }
