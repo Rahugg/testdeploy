@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const rootFolderName = process.env.BUILD_DIRECTORY || 'dist'
 // configuration
+require('dotenv').config();
+
 const config = {
     s3BucketName: process.env.BUCKET_NAME,
     folderPath: `./${rootFolderName}` // path relative script's location
@@ -18,11 +20,13 @@ const s3 = new AWS.S3(s3Config);
 
 //remove this log in production
 // Github show  **** instead of your keys(some privacy things), so //don't panic if you see your password like that
-console.log('s3 config ', s3Config)
+// console.log('s3 config ', s3Config)
 // resolve full folder path
 const distFolderPath = path.join(__dirname, config.folderPath);
 
 uploadDirectoryFiles(distFolderPath)
+
+
 
 function uploadDirectoryFiles(distFolderPath) {
     const files = fs.readdirSync(distFolderPath)

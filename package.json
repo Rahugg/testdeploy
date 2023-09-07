@@ -3,6 +3,7 @@
     "deploy-aws": "node aws-upload.js"
   },
   "dependencies": {
-    "aws-sdk": "^2.1452.0"
+    "aws-sdk": "^2.1452.0",
+    "dotenv": "^16.3.1"
   }
 }
